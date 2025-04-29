@@ -12,6 +12,8 @@ spec:
       labels:
         app: student-app
     spec:
+      imagePullSecrets:
+        - name: my-registry-key
       containers:
       - name: student-app
         image: vasanth4747/student-college-animation:latest
