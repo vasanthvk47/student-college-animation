@@ -9,7 +9,7 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git 'https://github.com/vasanthvk47/student-college-animation.git'
+                git branch: 'main', url: 'https://github.com/vasanthvk47/student-college-animation.git'
             }
         }
 
@@ -35,8 +35,8 @@ pipeline {
         stage('Deploy to Kubernetes') {
             steps {
                 script {
-                    sh "kubectl apply -f k8s-deployment.yaml"
-                    sh "kubectl apply -f service.yaml"
+                    sh "kubectl apply -f k8s/deployment.yaml"
+                    sh "kubectl apply -f k8s/service.yaml"
                 }
             }
         }
